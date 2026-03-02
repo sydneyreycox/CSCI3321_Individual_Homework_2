@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <h1>DormPedia</h1>
+        <p>Cook with <u><i>basic</i></u> facilities<a href="/easter_egg">!</a></p>
+    </header>
+    <nav>
+        <!-- I fucking love ternary!!!! -->
+        <a href="/" class = "<%= activePage == 'home' ? 'highlight' : ''%>">Home</a>
+        <a href="/recipes" class = "<%= activePage == 'recipes' ? 'highlight' : ''%>">Recipes</a>
+        <a href="/" class = "<%= activePage == 'add-recipe' ? 'highlight' : ''%>">Add a Recipe</a>
+        <a href="/" class = "<%= activePage == 'add-ingredient' ? 'highlight' : ''%>">Add an Ingredient</a>
+    </nav>
+</html>

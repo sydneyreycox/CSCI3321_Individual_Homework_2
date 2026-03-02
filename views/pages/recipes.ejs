@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dormpedia</title>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
+    <body>
+    <h1>All Recipes</h1>
+    
+    <% recipes.forEach(recipe => { %>
+        <div>
+        <h2><%= recipe.name %></h2>
+        <p>Protein: <%= recipe.protein %></p>
+        <p>Cook Time: <%= recipe.cook_time %> minutes</p>
+        </div>
+    <% }); %>
+    </body>
+</html>
