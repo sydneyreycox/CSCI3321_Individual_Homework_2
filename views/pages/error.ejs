@@ -1,0 +1,22 @@
+<!--Simple error page framed by claude, fixed up by myself-->
+
+<!DOCTYPE html>
+<html>
+    <%- include('../partials/header', {activePage:''}) %>
+        <body>
+            <main>
+                <div class="recipe-detail">
+                    <h1>Form Not Submitted</h1>
+                    <p>Common problems:</p>
+                    <ul>
+                        <li>Ingredient already exists (names must be unique for ingredients)</li>
+                        <li>Your text is too long.</li>
+                        <li>Database connection issue</li>
+                        <li>You used invalid letters or format.</li>
+                    </ul>
+                    <a href="javascript:history.back()" class="btn">Go Back</a>
+                </div>
+            </main>
+        </body>
+    <%- include('../partials/footer') %>
+</html>

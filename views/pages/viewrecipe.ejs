@@ -1,0 +1,46 @@
+<!--Claude helped me with syntax and understanding how to build this.-->
+
+<!DOCTYPE html>
+<html>
+    <%- include('../partials/header', {activePage:'recipes'}) %>
+    <body>
+        <main>
+            <div class="recipe-detail">
+                <h1><%= recipe.name %></h1>
+                
+                <div class="recipe-meta">
+                    <p>Cook Time: <%= recipe.cook_time %> min</p>
+                    <p>Cost per serving: $<%= recipe.serving_cost %></p>
+                    <p>Inital Cost: $<%= recipe.init_cost %></p>
+                    <p>Protein: <%= recipe.protein %></p>
+                </div>
+                <div class="recipe-ingredients">
+                    <h2>Ingredients</h2>
+                    <ul>
+                        <% ingredients.forEach(ing => { %>
+                            <li class="ingredient">
+                                <span class="ingredient-name">
+                                    <%= ing.quantity %> <%= ing.name %>
+                                </span>
+
+                                <span class="ingredient-tooltip">
+                                    <h3>Don't fuck it up:</h3><br>
+                                    <%= ing.info %>
+                                </span>
+                            </li>
+                        <% }) %>
+                    </ul>
+                </div>
+                <div class="recipe-instructions">
+                    <h2>Instructions</h2>
+                    <ol>
+                        <% recipe.instructions.split('\n').forEach(step => { %>
+                            <li><%= step %></li>
+                        <% }); %>
+                    </ol>
+                </div>
+            </div>
+        </main>
+    </body>
+    <%- include('../partials/footer') %>
+</html>

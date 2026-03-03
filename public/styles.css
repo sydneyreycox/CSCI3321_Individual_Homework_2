@@ -83,52 +83,12 @@ nav a:hover {
 
 /* Main content */
 main {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    align-self: stretch;
 }
-
-/* Recipe cards */
-.recipe-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.recipe-card {
-  background: var(--white);
-  border-radius: 10px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
-}
-
-.recipe-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-}
-
-.recipe-card h2 {
-  color: var(--secondary);
-  margin-bottom: 1rem;
-}
-
-.recipe-card .protein {
-  background-color: var(--primary);
-  color: var(--white);
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  display: inline-block;
-  margin-bottom: 1rem;
-}
-
-.recipe-card .info {
-  color: var(--text);
-  font-size: 0.9rem;
-}
-
 /* Buttons */
 button, .btn {
   background-color: var(--primary);
@@ -219,4 +179,185 @@ footer a {
 footer a:hover {
   color: var(--primary-light);
   text-decoration: underline;
+}
+
+/* Protein sections */
+.protein-section {
+    margin: 3rem 0;
+}
+
+.protein-section h2 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--primary);
+}
+
+/* Recipe grid stays the same */
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+    gap: 1.5rem;
+}
+
+.recipe-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.recipe-card h3 {
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.recipe-card p {
+    margin: 0.5rem 0;
+    color: var(--text);
+}
+
+.hero {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    color: var(--text);
+    margin-bottom: 2rem;
+}
+
+.home-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.home-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.home-card h2 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.home-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.recipe-detail {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: var(--white);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.recipe-detail h1 {
+    color: var(--secondary);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.recipe-detail ul {
+    padding: 1rem 2rem;
+}
+
+.recipe-meta {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    color: var(--text);
+    font-size: 1.1rem;
+}
+
+.recipe-instructions h2 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.recipe-instructions ol {
+    padding-left: 1.5rem;
+}
+
+.recipe-instructions li {
+    margin: 0.8rem 0;
+    line-height: 1.6;
+}
+
+.recipe-ingredients h2 {
+    color: var(--primary);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.recipe-ingredients ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.ingredient {
+    position: relative;
+    background: var(--accent);
+    border-radius: 6px;
+    padding: 0.6rem 0.8rem;
+    margin: 0.4rem 0;
+    transition: background-color 0.2s ease;
+    cursor: help;
+}
+
+.ingredient:hover {
+    background-color: var(--primary-light);
+    color: var(--white);
+}
+
+/* Tooltip box */
+.ingredient-tooltip {
+    visibility: hidden;
+    opacity: 0;
+
+    position: absolute;
+    left: 105%;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 260px;
+    padding: 0.8rem;
+
+    background: var(--secondary);
+    color: var(--white);
+
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+
+    font-size: 0.9rem;
+    line-height: 1.4;
+
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 50;
+}
+
+/* Show tooltip */
+.ingredient:hover .ingredient-tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(-50%) translateX(4px);
 }

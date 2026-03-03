@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Dormpedia</title>
-        <link rel="stylesheet" href="/styles.css">
-    </head>
+    <%- include('../partials/header', {activePage:'home'}) %>
     <body style="text-align:center">
-        <%- include('../partials/header', {activePage:'home'}) %>
-
         <h1>You found the easter egg! Good job!</h1>
         <h1>
             <img src="/images/bcti.jpg" class="easter-egg-image">   +   <img src="/images/tuti.jpg" class="easter-egg-image">
             <br> = <br>
             <img src="/images/hybridA.jpg" class="easter-egg-image">   +   <img src="/images/hybridB.jpg" class="easter-egg-image">
         </h1>
-
-        <%- include('../partials/footer') %>
     </body>
+    <%- include('../partials/footer') %>
 </html>

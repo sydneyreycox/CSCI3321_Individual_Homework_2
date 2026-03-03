@@ -3,7 +3,7 @@ USE DormPediaDB;
 
 CREATE TABLE ingredients(
 	id SERIAL PRIMARY KEY,
-	name varchar(31),
+	name varchar(31) UNIQUE,
     info varchar(255)
 );
 
@@ -74,7 +74,6 @@ INSERT INTO ingredients_for_recipe(recipe_id,ingredient_id,quantity) VALUES
     (2,9,"3 Packs"),(2,10,"1 Tbsp"),(2,11,"6 Slices"),(2,12,"2 Cloves"),(2,13,"2"),(2,14,"3/4 Cup"),(2,15,""),(2,16,"1 Tbsp"),(2,7,"")
 ;
 
-
 SELECT 
     r.name AS recipe_name,
     i.name AS ingredient_name,
@@ -84,3 +83,45 @@ FROM recipes r
 JOIN ingredients_for_recipe ifr ON r.id = ifr.recipe_id
 JOIN ingredients i ON ifr.ingredient_id = i.id
 WHERE r.id = 2;
+
+/*Claude generated the following examples:*/
+-- Ingredients for Mac and Cheese in a Mug
+INSERT INTO ingredients(name,info) VALUES
+    ("Elbow Macaroni","Dried pasta keeps for 2 years in a sealed container. Cook until al dente—firm to the bite—then drain immediately."),
+    ("Shredded Cheddar","Pre-shredded cheese has anti-caking agents that can make sauces grainy. Shred your own if possible, but pre-shredded works in a pinch."),
+    ("Butter","Salted vs unsalted: use unsalted for baking to control salt levels, salted is fine for cooking."),
+    ("Paprika","Adds color and mild flavor. Store in a cool, dark place—heat and light make spices lose flavor fast.");
+
+-- Ingredients for Microwave Oatmeal
+INSERT INTO ingredients(name,info) VALUES
+    ("Rolled Oats","Not instant oats—those are too processed. Rolled oats are heartier and cheaper. Store in airtight container for up to a year."),
+    ("Honey","Pure honey never expires. If it crystallizes, microwave for 15-20 seconds to liquify again."),
+    ("Cinnamon","Ground cinnamon loses potency after 6 months. Smell it—if it's weak, toss it and buy fresh."),
+    ("Sliced Banana","Buy bananas when they're still slightly green. They'll ripen in 2-3 days at room temp.");
+
+-- Recipe: Mac and Cheese in a Mug
+INSERT INTO recipes(name,protein,init_cost,serving_cost,cook_time,instructions) VALUES
+    ("Mac and Cheese in a Mug","Grains",15.00,1.50,8,CONCAT(
+    "Cook Pasta: Place 1/3 cup elbow macaroni in a large microwave-safe mug. Add 1/2 cup water.",
+    "\nMicrowave on high for 2-3 minutes, stirring halfway through. Pasta should be tender and water mostly absorbed.",
+    "\nAdd Cheese: Stir in 1/4 cup shredded cheddar and 1 tablespoon butter. Mix until melted and creamy.",
+    "\nSeason: Add a pinch of salt and a sprinkle of paprika. Stir well.",
+    "\nServe: Let cool for 1-2 minutes before eating. Top with extra cheese or hot sauce if desired."));
+
+-- Recipe: Microwave Oatmeal
+INSERT INTO recipes(name,protein,init_cost,serving_cost,cook_time,instructions) VALUES
+    ("Microwave Oatmeal","Grains",12.00,0.75,5,CONCAT(
+    "Combine Ingredients: In a microwave-safe bowl, add 1/2 cup rolled oats, 1 cup water, and a pinch of salt.",
+    "\nMicrowave: Microwave on high for 2-3 minutes. Watch it closely—oatmeal can bubble over fast!",
+    "\nStir and Rest: Remove from microwave and stir. Let it sit for 1 minute to thicken.",
+    "\nAdd Toppings: Drizzle 1 tablespoon honey, sprinkle 1/2 teaspoon cinnamon, and top with sliced banana.",
+    "\nServe: Mix well and enjoy. Add milk if you prefer it creamier."));
+
+-- Link ingredients to Mac and Cheese (recipe_id will be 3 if you have 2 existing recipes)
+INSERT INTO ingredients_for_recipe(recipe_id,ingredient_id,quantity) VALUES
+    (3,17,"1/3 Cup"),(3,18,"1/4 Cup"),(3,19,"1 Tbsp"),(3,20,"1 Sprinkle"),(3,7,"1 Pinch");
+
+-- Link ingredients to Microwave Oatmeal (recipe_id will be 4)
+INSERT INTO ingredients_for_recipe(recipe_id,ingredient_id,quantity) VALUES
+    (4,21,"1/2 Cup"),(4,22,"1 Tbsp"),(4,23,"1/2 Tsp"),(4,24,"1"),(4,7,"1 Pinch");
+    

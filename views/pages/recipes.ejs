@@ -1,18 +1,30 @@
+<!--Claude helped me with syntax and understanding how to build this.-->
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Dormpedia</title>
-        <link rel="stylesheet" href="/styles.css">
-    </head>
+    <%- include('../partials/header', {activePage:'recipes'}) %>
     <body>
-    <h1>All Recipes</h1>
-    
-    <% recipes.forEach(recipe => { %>
-        <div>
-        <h2><%= recipe.name %></h2>
-        <p>Protein: <%= recipe.protein %></p>
-        <p>Cook Time: <%= recipe.cook_time %> minutes</p>
-        </div>
-    <% }); %>
+        <main>
+            <h1>All Recipes</h1>
+
+            <% Object.keys(recipeByProtein).forEach(protein => { %>
+                <section class="protein-section">
+                    <h2><%= protein %></h2>
+                    
+                    <div class="recipe-grid">
+                        <% recipeByProtein[protein].forEach(recipe => { %>
+                            <div class="recipe-card">
+                                <h3><%= recipe.name %></h3>
+                                <p>Cook Time: <%= recipe.cook_time %> min</p>
+                                <p>Cost per serving: $<%= recipe.serving_cost %></p>
+                                <!--I'm proud of this solution VV-->
+                                <a href="/viewrecipe?id=<%= recipe.id %>" class="btn">View</a>
+                            </div>
+                        <% }); %>
+                    </div>
+                </section>
+            <% }); %>
+        </main>
     </body>
+    <%- include('../partials/footer') %>
 </html>

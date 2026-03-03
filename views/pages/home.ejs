@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Dormpedia</title>
-        <link rel="stylesheet" href="/styles.css">
-    </head>
+    <%- include('../partials/header', {activePage:'home'}) %>
     <body>
-        <%- include('../partials/header', {activePage:'home'}) %>
+        <main>
+            <div class="hero">
+                <h1>Welcome to DormPedia!</h1>
+                <p>Your pal for cooking with no facilities (or knowledge)!</p>
+                <a href="/recipes" class="btn">Browse Recipes</a>
+            </div>
 
-        <h1>Welcome to DormPedia!</h1>
-        <p>Testing goes here.</p>
-
-        <%- include('../partials/footer') %>
+            <div class="home-grid">
+                <div class="home-card">
+                    <h2>My Favorite Food</h2>
+                    <p>It's very hard to say I have one favorite food, but my mother's tamales have to take the top spot. Nothing
+                        is quite as delicious as a tamale you've spent the whole day making.
+                    </p>
+                </div>
+                <div class="home-card">
+                    <h2>My Cooking Experience</h2>
+                    <p>
+                        From a young age I've been in the kitchen with my mother and grandmother. Some of my earliest memories are trying 
+                        to hop up on the counter and onto stools so I can try and help my mom and dad cook. I cherish those early memories
+                        from my childhood, cooking thanksgiving with my grandmother. Now that I'm in college, I've turned my focus toward
+                        cooking delicious meals in minimal settings.
+                    </p>
+                </div>
+                <div class="home-card">
+                    <h2>The devs</h2>
+                    <p><img src="images/devs.jpg">
+                    <br>Sydney(primary) and Paige</p>
+                </div>
+            </div>
+        </main>
     </body>
+    <%- include('../partials/footer') %>
 </html>

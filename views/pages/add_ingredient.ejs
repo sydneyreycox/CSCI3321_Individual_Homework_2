@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <%- include('../partials/header', {activePage:'add-ingredient'}) %>
+        <body>
+            <main>
+                <form action="/add-ingredient" method="POST">
+                    <h2>Add an Ingredient</h2>
+
+                    <label>Ingredient Name</label>
+                    <input type="text" name="name" maxlength="31" required placeholder = "e.g. Chocolate...">
+
+                    <label>How not to fuck it up:</label>
+                    <textarea name="info" maxlength="255" placeholder="e.g. Store in a cool, dark place..."></textarea>
+
+                    <button type="submit">Add Ingredient</button>
+                </form>
+                <div class="ingredient-list">
+                    <h2>Existing Ingredients</h2>
+                    <input type="text" id="search" placeholder="Search ingredients..." onkeyup="filterIngredients()">
+                    
+                    <ul id="ingredient-ul">
+                        <% ingredients.forEach(ingredient => { %>
+                            <li class="ingredient-item">
+                                <strong><%= ingredient.name %></strong>
+                                <p><%= ingredient.info %></p>
+                            </li>
+                        <% }); %>
+                    </ul>
+                </div>
+            </main>
+        </body>
+        <!--search function implemented by claude-->    
+        <script>
+            function filterIngredients() {
+                const search = document.getElementById("search").value.toLowerCase();
+                const items = document.querySelectorAll(".ingredient-item");
+                items.forEach(item => {
+                    const name = item.querySelector("strong").textContent.toLowerCase();
+                    item.style.display = name.includes(search) ? "" : "none";
+                });
+            }
+        </script>
+    <%- include('../partials/footer') %>
+</html>
