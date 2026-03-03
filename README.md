@@ -19,3 +19,5 @@ To Start the website on localhost:
 4. Call "node server.js" in project folder.
 
 PLEASE Read the fun facts/don't fuck it up of the Brownie in a cup, they're quite great In my opinion.
+
+Click the exclamation mark in the subtitle for a fun surprise.
